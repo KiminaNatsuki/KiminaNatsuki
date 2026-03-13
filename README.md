@@ -1,6 +1,7 @@
 </p>
 <img align="right" width="10%" src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/genshin-impact-hutao/sticker_18.png?2c9966a5520fdab6c03fda5ca193f388&d=200x200">
 <img align="right" width="10%" src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/genshin-impact-furina/sticker_4.png?68f63bbc1d6e6364cc00236bdfde6367&d=200x200">
+<img align="right" width="10%" src="https://cdn2.cdnstep.com/4FjFo7ZZdKQAe53GN7G0/3-1.thumb128.png">
 <p>
  
 :wave: **Hello There!** I'm Kimina.
