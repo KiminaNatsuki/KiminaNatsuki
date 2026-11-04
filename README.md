@@ -14,7 +14,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KiminaNatsuki/KiminaNatsuki/main/assets/badge-teto-dark.svg?v=3">
-    <img alt="artist: 重音テト" src="https://raw.githubusercontent.com/KiminaNatsuki/KiminaNatsuki/main/assets/badge-teto-light.svg?v=3" height="28" align="middle">
+    <img alt="vocalsynth: 重音テト" src="https://raw.githubusercontent.com/KiminaNatsuki/KiminaNatsuki/main/assets/badge-teto-light.svg?v=3" height="28" align="middle">
   </picture>&nbsp;
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KiminaNatsuki/KiminaNatsuki/main/assets/badge-os-dark.svg?v=3">
