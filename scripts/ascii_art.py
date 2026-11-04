@@ -62,7 +62,7 @@ SLEEP_Z = [
 
 
 def banner(text: str) -> list[str]:
-    rows = pyfiglet.figlet_format(text, font="ansi_shadow", width=400).rstrip("\n").split("\n")
+    rows = pyfiglet.figlet_format(text, font="ansi_regular", width=400).rstrip("\n").split("\n")
     rows = [r.rstrip() for r in rows]
     while rows and not rows[-1].strip():
         rows.pop()

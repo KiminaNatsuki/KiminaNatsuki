@@ -9,66 +9,65 @@ banner = "KIMINA"        # 頂部 ASCII 大字
 
 # ── 頂部終端 ───────────────────────────────────────────────────────────
 [header]
-title = "Kimina@KiminaOS-Windows: ~ - pwsh"
+title = "Kimina@KiminaOS-Windows: ~ (pwsh)"
 alt = "Kimina terminal banner"
-last_login = "PowerShell 7.4 · Windows Terminal"
-subtitle = "[teal]Possibly doing random things[/] [overlay1]·[/] [text]Taiwan (R.O.C.)[/] [overlay1]·[/] [pink b](*ﾟ▽ﾟ*)[/]"
+subtitle = "[teal]Possibly doing random things[/] [overlay1]·[/] Taiwan (R.O.C.) [overlay1]·[/] [pink](*ﾟ▽ﾟ*)[/]"
 
 [[header.commands]]
 cmd = 'Write-Host "重音テト最高！" -ForegroundColor Magenta'
-output = ["[pink b]>> 重音テト最高！ ( •̀ω•́ )✧[/]"]
+output = ["[pink]>> 重音テト最高！ ( •̀ω•́ )✧[/]"]
+bar = "pink"  # 輸出左側的豎線顏色
 
 [[header.commands]]
 cmd = "git commit -m \"Merge branch 'main' of TFR-ROC\""
-output = ["[[main [yellow]8795f93[/]] Merge branch 'main' of TFR-ROC", " [green]+1,130[/] / [red]-2,378[/]"]
+output = ["[[main [yellow]8795f93[/]] Merge branch 'main' of TFR-ROC · [green]+1,130[/] / [red]-2,378[/]"]
 
-# ── neofetch 卡片 ─────────────────────────────────────────────────────
+# ── fastfetch 卡片 ────────────────────────────────────────────────────
 [neofetch]
+installed = 2025-12-13  # 右上角 "up N days" 從這天算起
 about = [
-  ["os", "Windows 11 IoT Enterprise LTSC [overlay1]·[/] 24H2"],
-  ["host", "KiminaOS-Windows [overlay1]·[/] Build 26100.9711"],
-  ["installed", "2025/12/13"],
-  ["shell", "pwsh 7.4.x [overlay1]·[/] Windows Terminal"],
-  ["bio", "平常都「很閒」的台灣人 [overlay1](zh-TW / EN)[/]"],
+  ["OS", "Windows 11 IoT Enterprise LTSC (24H2)"],
+  ["Build", "26100.9711 [overlay1]· installed 2025/12/13[/]"],
+  ["Host", "KiminaOS-Windows"],
+  ["Shell", "pwsh 7.4.x [overlay1]· Windows Terminal[/]"],
+  ["Bio", "平常都「很閒」的台灣人 [overlay1](zh-TW / EN)[/]"],
 ]
 exclude_repos = ["KiminaNatsuki"]
 
 # ── 技能 (dir ~\skills) ────────────────────────────────────────────────
 [skills]
 files = [
-  ["main.py", "yellow"],
-  ["app.ts", "teal"],
-  ["Main.java", "red"],
-  ["model.ampl", "mauve"],
-  ["index.html", "peach"],
-  ["style.css", "blue"],
+  ["main.py", "yellow", "Python"],
+  ["app.ts", "teal", "TypeScript"],
+  ["Main.java", "red", "Java"],
+  ["model.ampl", "mauve", "AMPL"],
+  ["index.html", "peach", "HTML"],
+  ["style.css", "blue", "CSS"],
 ]
 
 # ── 頁尾 ───────────────────────────────────────────────────────────────
 [footer]
-title = "exit"
-alt = "See you next time! (・ω・)ノ"
+alt = "掰掰～ See you next time! (・ω・)ノ"
 lines = [
   "[pink b]掰掰～[/] See you next time! (・ω・)ノ",
-  "Thanks for stopping by [overlay1](≧∇≦)b[/]",
-  "[overlay0]# updated {date} · drawn by python3 with ♥[/]",
+  "# KiminaOS-Windows · drawn with Catppuccin Mocha & ♡",
 ]
 
 # ── 徽章 ───────────────────────────────────────────────────────────────
 [[badges]]
 name = "teto"
-label = "vocalsynth"
-value = "重音テト"
+label = "Kasane Teto"
+value = "重音テト (0401)"
 color = "pink"
 
 [[badges]]
 name = "os"
-label = "os"
-value = "Windows 11 IoT LTSC"
+label = "Windows 11"
+value = "IoT LTSC 24H2"
 color = "blue"
 
 [[badges]]
 name = "locale"
-label = "locale"
-value = "Taiwan (R.O.C.)"
+label = "Taiwan (R.O.C.)"
+value = "zh-TW / EN"
 color = "teal"
