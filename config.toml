@@ -57,7 +57,7 @@ lines = [
 # ── 徽章 ───────────────────────────────────────────────────────────────
 [[badges]]
 name = "teto"
-label = "artist"
+label = "vocalsynth"
 value = "重音テト"
 color = "pink"
 
