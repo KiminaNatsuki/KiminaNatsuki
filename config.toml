@@ -9,14 +9,14 @@ banner = "KIMINA"        # 頂部 ASCII 大字
 
 # ── 頂部終端 ───────────────────────────────────────────────────────────
 [header]
-title = "Kimina@KiminaOS-Windows: ~ — pwsh"
+title = "Kimina@KiminaOS-Windows: ~ - pwsh"
 alt = "Kimina terminal banner"
 last_login = "PowerShell 7.4 · Windows Terminal"
-subtitle = "[teal]Possibly doing random things[/] [overlay1]·[/] [text]Taiwan (R.O.C.)[/] [overlay1]·[/] [pink b]( •̀ω•́ )✧[/]"
+subtitle = "[teal]Possibly doing random things[/] [overlay1]·[/] [text]Taiwan (R.O.C.)[/] [overlay1]·[/] [pink b](*ﾟ▽ﾟ*)[/]"
 
 [[header.commands]]
 cmd = 'Write-Host "重音テト最高！" -ForegroundColor Magenta'
-output = ["[pink b]>> 重音テト最高！ (*ﾟ▽ﾟ*)[/]"]
+output = ["[pink b]>> 重音テト最高！ ( •̀ω•́ )✧[/]"]
 
 [[header.commands]]
 cmd = "git commit -m \"Merge branch 'main' of TFR-ROC\""
@@ -44,14 +44,14 @@ files = [
   ["style.css", "blue"],
 ]
 
-# ── 結尾 ───────────────────────────────────────────────────────────────
+# ── 頁尾 ───────────────────────────────────────────────────────────────
 [footer]
 title = "exit"
-alt = "掰掰～ See you next time! (・ω・)ノ"
+alt = "See you next time! (・ω・)ノ"
 lines = [
-  "[pink b]掰掰～[/]  See you next time! (・ω・)ノ",
+  "[pink b]掰掰～[/] See you next time! (・ω・)ノ",
   "Thanks for stopping by [overlay1](≧∇≦)b[/]",
-  "[overlay0]# updated {date} · drawn by python3 with ♡[/]",
+  "[overlay0]# updated {date} · drawn by python3 with ♥[/]",
 ]
 
 # ── 徽章 ───────────────────────────────────────────────────────────────
