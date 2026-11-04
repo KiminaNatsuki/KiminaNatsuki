@@ -1,0 +1,74 @@
+# ───────────────────────────────────────────────────────────────────────
+#  Kimina 主頁設置 (Windows Terminal / PowerShell Edition)
+# ───────────────────────────────────────────────────────────────────────
+
+[profile]
+github = "KiminaNatsuki"  # GitHub 用戶名，用來抓取統計數據
+user = "Kimina"          # 提示符裡顯示的名字 (PS C:\Users\Kimina>)
+banner = "KIMINA"        # 頂部 ASCII 大字
+
+# ── 頂部終端 ───────────────────────────────────────────────────────────
+[header]
+title = "Kimina@KiminaOS-Windows: ~ — pwsh"
+alt = "Kimina terminal banner"
+last_login = "PowerShell 7.4 · Windows Terminal"
+subtitle = "[teal]Possibly doing random things[/] [overlay1]·[/] [text]Taiwan (R.O.C.)[/] [overlay1]·[/] [pink b]( •̀ω•́ )✧[/]"
+
+[[header.commands]]
+cmd = 'Write-Host "重音テト最高！" -ForegroundColor Magenta'
+output = ["[pink b]>> 重音テト最高！ (*ﾟ▽ﾟ*)[/]"]
+
+[[header.commands]]
+cmd = "git commit -m \"Merge branch 'main' of TFR-ROC\""
+output = ["[[main [yellow]8795f93[/]] Merge branch 'main' of TFR-ROC", " [green]+1,130[/] / [red]-2,378[/]"]
+
+# ── neofetch 卡片 ─────────────────────────────────────────────────────
+[neofetch]
+about = [
+  ["os", "Windows 11 IoT Enterprise LTSC [overlay1]·[/] 24H2"],
+  ["host", "KiminaOS-Windows [overlay1]·[/] Build 26100.9711"],
+  ["installed", "2025/12/13"],
+  ["shell", "pwsh 7.4.x [overlay1]·[/] Windows Terminal"],
+  ["bio", "平常都「很閒」的台灣人 [overlay1](zh-TW / EN)[/]"],
+]
+exclude_repos = ["KiminaNatsuki"]
+
+# ── 技能 (dir ~\skills) ────────────────────────────────────────────────
+[skills]
+files = [
+  ["main.py", "yellow"],
+  ["app.ts", "teal"],
+  ["Main.java", "red"],
+  ["model.ampl", "mauve"],
+  ["index.html", "peach"],
+  ["style.css", "blue"],
+]
+
+# ── 結尾 ───────────────────────────────────────────────────────────────
+[footer]
+title = "exit"
+alt = "掰掰～ See you next time! (・ω・)ノ"
+lines = [
+  "[pink b]掰掰～[/]  See you next time! (・ω・)ノ",
+  "Thanks for stopping by [overlay1](≧∇≦)b[/]",
+  "[overlay0]# updated {date} · drawn by python3 with ♡[/]",
+]
+
+# ── 徽章 ───────────────────────────────────────────────────────────────
+[[badges]]
+name = "teto"
+label = "artist"
+value = "重音テト"
+color = "pink"
+
+[[badges]]
+name = "os"
+label = "os"
+value = "Windows 11 IoT LTSC"
+color = "blue"
+
+[[badges]]
+name = "locale"
+label = "locale"
+value = "Taiwan (R.O.C.)"
+color = "teal"
