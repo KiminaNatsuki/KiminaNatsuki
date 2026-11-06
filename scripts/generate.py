@@ -47,7 +47,7 @@ def main():
 
     for theme, P in THEMES.items():
         print(f"[{theme}]")
-        write(out / "assets" / f"header-{theme}.svg", cards.header(cfg, P))
+        write(out / "assets" / f"header-{theme}.svg", cards.header(cfg, P, stats))
         write(out / "assets" / f"skills-{theme}.svg", cards.skills(cfg, P))
         write(out / "assets" / f"footer-{theme}.svg", cards.footer(cfg, P))
         for b in cfg["badges"]:

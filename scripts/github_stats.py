@@ -63,6 +63,54 @@ def _gql(query: str, variables: dict, token: str) -> dict:
     return data["data"]
 
 
+def _latest_commit(login: str, token: str, exclude: list[str]) -> dict | None:
+    req = urllib.request.Request(
+        f"https://api.github.com/users/{login}/events",
+        headers={"Authorization": f"Bearer {token}", "User-Agent": "profile-generator"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            events = json.load(resp)
+    except Exception as e:
+        print(f"  warning: could not fetch events ({e})")
+        return None
+
+    skip = {e.lower() for e in exclude}
+    for ev in events:
+        if ev.get("type") != "PushEvent":
+            continue
+        repo = ev.get("repo", {}).get("name", "")
+        repo_short = repo.split("/")[-1]
+        if repo_short.lower() in skip:
+            continue
+        head = ev.get("payload", {}).get("head")
+        if not head:
+            continue
+        ref = ev.get("payload", {}).get("ref", "refs/heads/main").replace("refs/heads/", "")
+        c_req = urllib.request.Request(
+            f"https://api.github.com/repos/{repo}/commits/{head}",
+            headers={"Authorization": f"Bearer {token}", "User-Agent": "profile-generator"},
+        )
+        try:
+            with urllib.request.urlopen(c_req, timeout=15) as c_resp:
+                c_data = json.load(c_resp)
+        except Exception:
+            continue
+        msg = c_data.get("commit", {}).get("message", "").splitlines()[0]
+        if "Update profile pictures" in msg:
+            continue
+        stats = c_data.get("stats", {})
+        return {
+            "repo": repo_short,
+            "branch": ref,
+            "sha": head[:7],
+            "message": msg,
+            "additions": stats.get("additions", 0),
+            "deletions": stats.get("deletions", 0),
+        }
+    return None
+
+
 def _streaks(days: list[tuple[str, int]]) -> tuple[int, int]:
     """(current, best) runs of days with at least one contribution."""
     best = run = 0
@@ -121,6 +169,7 @@ def fetch(login: str, exclude: list[str]) -> dict:
     print("  " + summary)
     if os.environ.get("GITHUB_ACTIONS"):  # also shown on the workflow run page
         print(f"::notice title=Profile stats::{summary}")
+    latest_c = _latest_commit(login, token, exclude)
     return {
         "days": (now.date() - created.date()).days,
         "repos": u["all"]["totalCount"],
@@ -136,6 +185,7 @@ def fetch(login: str, exclude: list[str]) -> dict:
         "languages": langs.most_common(),
         "weeks": weeks,
         "year_label": "the last year",
+        "latest_commit": latest_c,
     }
 
 
@@ -162,4 +212,12 @@ def sample() -> dict:
         "following": 2, "contributions": total, "streak": 3, "best_streak": 9,
         "languages": [("Python", 52000), ("C++", 21000), ("HTML", 9000), ("JavaScript", 4000)],
         "weeks": weeks, "year_label": "the last year",
+        "latest_commit": {
+            "repo": "TFR-ROC",
+            "branch": "main",
+            "sha": "8795f93",
+            "message": "Merge branch 'main' of TFR-ROC",
+            "additions": 1130,
+            "deletions": 2378,
+        },
     }

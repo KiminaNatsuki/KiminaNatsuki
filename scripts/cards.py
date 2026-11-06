@@ -148,10 +148,24 @@ def cursor(c: Canvas, P: dict, t: Term, col: float, row: float, cls: str = "") -
 
 # ----------------------------------------------------------------- header
 
-def header(cfg: dict, P: dict) -> str:
+def header(cfg: dict, P: dict, stats: dict | None = None) -> str:
     rows = art.banner(cfg["profile"]["banner"])
     bw = max(len(r) for r in rows)
-    cmds = cfg["header"]["commands"]
+    cmds = [dict(c) for c in cfg["header"]["commands"]]
+    if stats and stats.get("latest_commit"):
+        lc = stats["latest_commit"]
+        msg = lc["message"]
+        msg_disp = (msg[:40] + "…") if len(msg) > 42 else msg
+        safe_msg = msg_disp.replace('"', '\\"')
+        cmd_str = f'git commit -m "{safe_msg}"'
+        branch = lc.get("branch", "main")
+        sha = lc.get("sha", "0000000")
+        adds = lc.get("additions", 0)
+        dels = lc.get("deletions", 0)
+        out_str = f"[[{branch} [yellow]{sha}[/]] {msg_disp} · [green]+{adds:,}[/] / [red]-{dels:,}[/]"
+        idx = next((i for i, c in enumerate(cmds) if c["cmd"].startswith("git commit")), len(cmds) - 1)
+        cmds[idx] = {"cmd": cmd_str, "output": [out_str]}
+
     bsize, blh = 15, 1.05
     size, lh = 14, 1.6
     oy = MARGIN + TITLE_H + 20
